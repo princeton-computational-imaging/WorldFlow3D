@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="description"
-            content="Large-Scale 3D Driving Scene Generation with Geometry Grounding.">
-    <meta name="keywords" content="Scene Generation, Gaussian Splatting, GenAI, Gen AI, 3D Generation, Autonomous Driving">
+            content="WorldFlow3D: Flowing Through 3D Distributions for Unbounded World Generation">
+    <meta name="keywords" content="WorldFlow3D, 3D Generation, Gaussian Splatting, GenAI, Gen AI, Autonomous Driving">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LSD-3D: Large-Scale 3D Driving Scene Generation with Geometry Grounding</title>
+    <title>WorldFlow3D: Flowing Through 3D Distributions for Unbounded World Generation</title>
     <link rel="icon" type="image/png" href="https://light.princeton.edu/wp-content/uploads/2023/05/pci-only-seal-dark.png">
     <link rel="shortcut icon" type="image/png" href="https://light.princeton.edu/wp-content/uploads/2023/05/pci-only-seal-dark.png">
 
@@ -51,21 +51,12 @@
             <div class="container is-max-desktop">
                 <div class="columns is-centered">
                     <div class="column has-text-centered">
-                        <h1 class="title is-1 publication-title">LSD-3D: Large-Scale 3D Driving Scene <br> Generation with Geometry Grounding</h1>
-                        <p class="is-size-4" style="margin-bottom: 20px; font-weight: 600; color: #555;">AAAI-26</p>
+                        <h1 class="title is-1 publication-title">WorldFlow3D: Flowing Through 3D Distributions for Unbounded World Generation</h1>
+                        <!-- <p class="is-size-4" style="margin-bottom: 20px; font-weight: 600; color: #555;">CONFERENCE NAME HERE</p> -->
                         <div class="is-size-5 publication-authors">
-                            <!-- <span class="author-block"><a href="https://ostjul.com">Julian Ost</a><sup>*,1</sup>,</span>
-                            <span class="author-block"><a href="https://andrearama.github.io">Andrea Ramazzina</a><sup>,*2</sup>,</span>
-                            <span class="author-block"><a href="https://amogh7joshi.github.io">Amogh Joshi</a><sup>*,1</sup>,</span>
-                            <span class="author-block"><a href="">Maximillian Bömer</a><sup></sup>,</span>
-                            <span class="author-block"><a href="http://mariobijelic.de/wordpress/">Mario Bijelic</a><sup>1,3</sup>,</span>
-                            <span class="author-block"><a href="https://www.cs.princeton.edu/~fheide/">Felix Heide</a><sup>1,3</sup></span> -->
                             
-                            <span class="author-block"><a href="https://ostjul.com">Julian Ost</a><sup>*</sup>,</span>
-                            <span class="author-block"><a href="https://andrearama.github.io">Andrea Ramazzina</a><sup>*</sup>,</span>
                             <span class="author-block"><a href="https://amogh7joshi.github.io">Amogh Joshi</a><sup>*</sup>,</span>
-                            <span class="author-block"><a href="">Maximilian Bömer</a><sup></sup>,</span>
-                            <span class="author-block"><a href="http://mariobijelic.de/wordpress/">Mario Bijelic</a><sup></sup>,</span>
+                            <span class="author-block"><a href="https://ostjul.com">Julian Ost</a><sup>*</sup>,</span>
                             <span class="author-block"><a href="https://www.cs.princeton.edu/~fheide/">Felix Heide</a><sup></sup></span>
                         </div>
                         <!-- <div class="is-size-5 publication-authors">
@@ -80,7 +71,7 @@
                             <div class="publication-links">
                                 <!-- PDF Link. -->
                                 <span class="link-block">
-                                <a href="https://light.princeton.edu/wp-content/uploads/2025/08/lsd_3d.pdf"
+                                <a href=""
                                     class="external-link button is-normal is-rounded is-dark">
                                     <span class="icon">
                                         <i class="fas fa-file-pdf"></i>
@@ -89,7 +80,7 @@
                                 </a>
                                 </span>
                                 <span class="link-block">
-                                <a href="https://arxiv.org/abs/2508.19204"
+                                <a href=""
                                     class="external-link button is-normal is-rounded is-dark">
                                     <span class="icon">
                                         <i class="ai ai-arxiv"></i>
@@ -135,111 +126,12 @@
         </div>
     </section>
 
-    <!-- Horizontal Scrolling Videos Section -->
-    <section class="video-marquee-section">
-        <div class="video-marquee-container">
-            <div class="video-marquee-track" id="videoMarqueeTrack">
-                <!-- Videos will be dynamically added via JavaScript -->
-            </div>
-        </div>
-    </section>
-
-    <section class="hero is-light is-small">
-        <div class="hero-body">
-            <div class="container is-max-desktop">
-                <div class="columns is-centered has-text-centered">
-                    <div class="column is-four-fifths">
-                        <h2 class="title is-3">Interactive Generated Scenes</h2>
-                    </div>
-                </div>
-            </div>
-
-            <div class="container">                    
-                    <div class="rolling-carousel-container">
-                        <div class="rolling-carousel-track">
-                            <div class="carousel-slide prev-slide">
-                                <div class="slide-preview">
-                                    <video class="preview-video" muted loop playsinline autoplay>
-                                        <source src="assets/video/high_views/93_4_highview_rgb.mp4" type="video/mp4">
-                                    </video>
-                                    <div class="preview-overlay">
-                                        <h4>Scene 3: Urban Scene</h4>
-                                        <!-- <p>Click to view</p> -->
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="carousel-slide active-slide">
-                                <div class="viewer-container gpu-accelerated optimized-renderer" id="viewer-active"></div>
-                                <div class="viewer-controls-overlay">
-                                    <ul>
-                                        <li>Click + drag: Pitch & Rotate Scene</li>
-                                        <li>Scroll: Zoom in/out</li>
-                                        <li>WASD: Move Camera</li>
-                                        <li>QERF: Rotate Scene & Up/Down</li>
-                                    </ul>
-                                </div>
-                                <div class="slide-info">
-                                    <h4>Scene 1: Winter Scene</h4>
-                                    <h3>An Urban Winter Street Scene.</h3>
-                                    <div class="loading-status" style="display: none;">
-                                        <div class="loading-spinner"></div>
-                                        <span class="loading-text">Loading...</span>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="carousel-slide next-slide">
-                                <div class="slide-preview">
-                                    <video class="preview-video" muted loop playsinline autoplay>
-                                        <source src="assets/video/high_views/21_3_night_highview_rgb.mp4" type="video/mp4">
-                                    </video>
-                                    <div class="preview-overlay">
-                                        <h4>Scene 2: Night Scene</h4>
-                                        <!-- <p>Click to view</p> -->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    
-                    <div class="carousel-controls">
-                        <button class="carousel-btn button is-normal is-rounded is-dark" id="prevBtn">Previous</button>
-                        <button class="carousel-btn button is-normal is-rounded is-dark" id="nextBtn">Next</button>
-                    </div>
-                    
-                    <div class="dots">
-                        <span class="dot active" onclick="currentSlide(1)"></span>
-                        <span class="dot" onclick="currentSlide(2)"></span>
-                        <span class="dot" onclick="currentSlide(3)"></span>
-                        <span class="dot" onclick="currentSlide(4)"></span>
-                    </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Driving Videos Grid Section -->
-    <section class="section">
+    <!-- Teaser Figure -->
+    <section class="section" style="padding-top: 1rem; padding-bottom: 1rem;">
         <div class="container is-max-desktop">
-            <div class="columns is-centered has-text-centered">
-                <div class="column is-four-fifths">
-                    <h2 class="title is-3">Rendered Driving Trajectories</h2>
-                    <div class="content has-text-justified">
-                        <p>Below we show driving trajectories rendered from our generated 3D scenes. All videos are rendered in real-time and feature diverse geometry, lighting, and weather conditions.</p>
-                    </div>
-                </div>
-            </div>
-            
             <div class="columns is-centered">
                 <div class="column is-four-fifths">
-                    <div class="single-driving-video">
-                        <video class="driving-video-single" autoplay muted loop playsinline preload="auto">
-                            <source src="assets/video/4x4_driving_high_res.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                    </div>
+                    <img src="assets/images/teaser_figure_one_street-1.webp" alt="WorldFlow3D Teaser" class="results-image" style="width: 100%;">
                 </div>
             </div>
         </div>
@@ -252,18 +144,31 @@
                 <div class="column is-four-fifths">
                     <h2 class="title is-3">Summary</h2>
                     <div class="content has-text-justified">
-                    <p> Large-scale scene data is essential for training and testing in robot learning. Neural reconstruction methods have promised the capability of reconstructing large physically-grounded outdoor scenes from captured sensor data. However, these methods have baked-in static environments and only allow for limited scene control -- they are functionally constrained in scene and trajectory diversity by the captures from which they are reconstructed. In contrast, generating driving data with recent image or video diffusion models offers control, however, at the cost of geometry grounding and causality. We aim to bridge this gap and present a method that directly generates large-scale 3D driving scenes with accurate geometry, allowing for causal novel view synthesis with object permanence and explicit 3D geometry estimation.</p>
+                    <p>Unbounded 3D world generation is emerging as a foundational task for scene modeling in computer vision, graphics, and robotics. We present WorldFlow3D, a novel method capable of generating unbounded 3D worlds. Building upon a foundational property of flow matching &ndash; defining a path of transport between two data distributions &ndash; we model 3D generation more generally as a problem of flowing through 3D data distributions, not limited to conditional denoising. Our latent-free flow approach generates causal and accurate 3D structure, and can use this as an intermediate distribution to guide the generation of more complex structure and high-quality texture &ndash; all while converging more rapidly than existing methods. We enable controllability over generated scenes with vectorized scene layout conditions for geometric structure control and visual texture control through scene attributes. We validate WorldFlow3D on both real outdoor driving scenes and synthetic indoor scenes, confirming cross-domain generalizability and high-quality generation.</p>
                 </div>
             </div>
         </div>
         <!--/ Abstract. -->
 
+        <!-- Video -->
+        <div class="columns is-centered">
+            <div class="column is-four-fifths">
+                <div class="single-driving-video">
+                    <video class="driving-video-single" autoplay muted loop playsinline preload="auto">
+                        <source src="assets/video/cond_video_webpage.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+        </div>
+        <!--/ Video -->
+
         <!-- Method Overview -->
         <div class="columns is-centered has-text-centered">
             <div class="column is-four-fifths">
-                <h2 class="title is-3">Geometry-Grounded Large-Scale 3D Scene Generation</h2>
+                <h2 class="title is-3">Flowing Through 3D Distributions</h2>
                 <div class="content has-text-justified method-description">
-                    <p>We generate a large-scale scene as a combination of a coarse geometric layout, an environment map, and a set of Gaussians for texture details. The geometric layout is either generated, conditioned on a map, or predicted from point-cloud data and guides the overall scene structure. We can further control the setting with a scene prompt, for example, specifying time-of-day, season, and weather. Through Geometry-Grounded Distillation Sampling (GGDS), we then further optimize the Gaussian-based scene representation by leveraging 2D priors from the conditional latent diffusion model through consistent diffusion sampling (inversion) and image-space optimization -- together with a set of geometry-grounding regularizers -- and generate a causal large-scale scene representation.</p>
+                    <p>WorldFlow3D decomposes generation into a sequence of independent flows over progressively richer representations &ndash; transporting from noise, through coarse geometry into fine geometry, and visual appearance. All flows operate directly in raw volumetric space, enabling a latent-free, hierarchical scene generation procedure. Generation is controlled by a vectorized geometric layout and discrete scene attributes, giving consistent structural and semantic control at every level. We introduce an extension to existing schedulers by aligning predicted flow fields across smaller chunks at inference time, unlocking truly unbounded scene generation without visible border artifacts.</p>
                 </div>
                 <div class="method-figure">
                     <img src="assets/images/method_overview.webp" alt="Method Overview" class="method-image">
@@ -273,49 +178,50 @@
         <!--/ Method Overview -->
 
         <!-- Results -->
-        <div class="columns is-centered has-text-centered">
+        <!-- <div class="columns is-centered has-text-centered">
             <div class="column is-four-fifths">
                 <h2 class="title is-3">Example Scenes</h2>
                 <div class="content has-text-justified results-description">
-                    <p>We visualize 3D scenes generated via our method, alongside the corresponding map of surface normals and selection of novel viewpoints at street level for each of them. In the first two columns, we provide samples of scenes with diversity in time-of-day, season, location, and scene type. In the third column, we provide examples of generated scenes with a point cloud condition and map layout condition. We confirm the method generates diverse, explicit, and causal 3D scenes.</p>
+                    <p>We visualize large-scale 3D scenes generated via WorldFlow3D, showcasing the core elements of our method: effectively unbounded scenes, explicit scene control, high-fidelity scene geometry, and visual attributes such as texture. Our generations exhibit coherent building structure, smooth road surfaces, and distinct vehicle geometry across diverse environments and conditions.</p>
+                </div>
+            </div>
+        </div> -->
+        <!--/ Results -->
+
+        <!-- Controllable Scene Generation -->
+        <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths">
+                <h2 class="title is-3">Controllable Scene Generation</h2>
+                <div class="content has-text-justified">
+                    <p>WorldFlow3D enables explicit control over generated scenes through vectorized geometric layouts for structure and discrete scene attributes for visual texture. Below we show generations conditioned on varying layouts and attributes, producing diverse environments with high-fidelity geometry and realistic appearance.</p>
                 </div>
                 <div class="results-figure">
-                    <img src="assets/images/main_results.webp" alt="Main Results" class="results-image">
+                    <img src="assets/images/controllability_final-1.webp" alt="Controllability Results" class="results-image">
                 </div>
             </div>
         </div>
-        <!--/ Results -->
+        <!--/ Controllable Scene Generation -->
 
         <!-- Baseline Comparisons -->
         <div class="columns is-centered has-text-centered">
             <div class="column is-four-fifths">
                 <h2 class="title is-3">Baseline Comparisons</h2>
                 <div class="content has-text-justified baseline-description">
-                    <p>Our approach generates an accurate and 3D-consistent scene representation, enabling high-quality novel view synthesis and the generation of unlimited off-trajectory viewpoints. Existing methods, such as Vista combined with Gaussian Splatting, GEN3C and MagicDrive3D, which generate driving videos, struggle with generating consistent and 3D-plausible scenes for generating novel driving trajectories.</p>
+                    <p>WorldFlow3D outperforms existing baselines across multiple data distributions, demonstrating not only high geometric fidelity but also a high degree of geometric diversity. We compare against XCube, LidarDM, LT3SD, BlockFusion, and WorldGrow on both outdoor driving scenes (Waymo) and indoor rooms (3D-FRONT), confirming favorable scene generation fidelity in all tested settings. A blind user study further confirms that users prefer our results with high significance over all baseline methods.</p>
                 </div>
                 <div class="baseline-videos">
                     <div class="columns is-multiline">
                         <div class="column is-half">
+                            <h4 class="has-text-centered">Outdoor (Waymo)</h4>
                             <video class="baseline-video" muted autoplay loop playsinline preload="metadata">
-                                <source src="assets/video/baseline_gen3c_u_turn.mp4" type="video/mp4">
+                                <source src="assets/video/comp_video_waymo_web.mp4" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
                         </div>
                         <div class="column is-half">
+                            <h4 class="has-text-centered">Indoor (3D-FRONT)</h4>
                             <video class="baseline-video" muted autoplay loop playsinline preload="metadata">
-                                <source src="assets/video/baseline_vista.mp4" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                        </div>
-                        <div class="column is-half">
-                            <video class="baseline-video" muted autoplay loop playsinline preload="metadata">
-                                <source src="assets/video/baseline_gen3c_c_barrel_roll.mp4" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                        </div>
-                        <div class="column is-half">
-                            <video class="baseline-video" muted autoplay loop playsinline preload="metadata">
-                                <source src="assets/video/baseline_magicdrive3d.mp4" type="video/mp4">
+                                <source src="assets/video/comp_video_front3d_web.mp4" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
                         </div>
@@ -352,12 +258,10 @@
             <div class="column is-four-fifths">
                 <h2 class="title is-3 has-text-centered">BibTeX</h2>
                 <pre><code>
-@article{ost2025lsd3d,
-    title     = {LSD-3D: Large-Scale 3D Driving Scene Generation with Geometry Grounding},
-    author    = {Ost, Julian and Ramazzina, Andrea and Joshi, Amogh and
-                Bömer, Maximilian and Bijelic, Mario and Heide, Felix},
-    booktitle = {The Fortieth AAAI Conference on Artificial Intelligence},
-    year      = {2026},
+@article{worldflow3d,
+    title     = {WorldFlow3D: Flowing Through 3D Distributions for Unbounded World Generation},
+    author    = {Joshi, Amogh and Ost, Julian and Heide, Felix},
+    year      = {2025},
 }
             </code></pre>
             </div>
