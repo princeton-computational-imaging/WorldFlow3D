@@ -12,7 +12,7 @@ function initMeshViewer(container) {
     if (width === 0 || height === 0) return;
 
     const scene = new THREE.Scene();
-    scene.background = new THREE.Color(0x1a1a2e);
+    scene.background = new THREE.Color(0xcccccc);
 
     const camera = new THREE.PerspectiveCamera(45, width / height, 0.001, 100);
 

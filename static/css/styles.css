@@ -1100,7 +1100,7 @@ pre code {
 
 /* Mesh Viewer */
 .mesh-viewer {
-    background: #1a1a2e;
+    background: #cccccc;
 }
 
 .mesh-loading-overlay {
@@ -1113,7 +1113,7 @@ pre code {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: rgba(26, 26, 46, 0.95);
+    background: rgba(204, 204, 204, 0.95);
     z-index: 10;
     color: white;
 }
