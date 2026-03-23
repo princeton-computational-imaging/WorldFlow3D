@@ -1,4 +1,5 @@
 *.ply
 *.DS_Store
+*.DS_Store*
 *.log
 *.tmp

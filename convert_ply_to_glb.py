@@ -8,7 +8,7 @@ import trimesh
 import numpy as np
 
 
-def ply_to_glb(ply_path: Path, max_faces: int = 500_000) -> Path:
+def ply_to_glb(ply_path: Path, max_faces: int = 1_500_000) -> Path:
     glb_path = ply_path.with_suffix(".glb")
     print(f"Loading {ply_path.name} ...")
     mesh = trimesh.load(ply_path)
