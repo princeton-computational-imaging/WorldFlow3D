@@ -8,10 +8,46 @@ import trimesh
 import numpy as np
 
 
+def load_ply(ply_path):
+    """Load PLY file, falling back to plyfile if trimesh fails."""
+    try:
+        return trimesh.load(ply_path)
+    except (ValueError, Exception) as e:
+        print(f"  trimesh failed ({e}), falling back to plyfile...")
+        from plyfile import PlyData
+        plydata = PlyData.read(str(ply_path))
+        verts = plydata["vertex"]
+        vertices = np.column_stack([verts["x"], verts["y"], verts["z"]])
+        colors = None
+        if all(p in verts.data.dtype.names for p in ("red", "green", "blue")):
+            r, g, b = verts["red"], verts["green"], verts["blue"]
+            a = verts["alpha"] if "alpha" in verts.data.dtype.names else np.full(len(r), 255, dtype=np.uint8)
+            colors = np.column_stack([r, g, b, a]).astype(np.uint8)
+        faces = None
+        if "face" in plydata and plydata["face"].count > 0:
+            face_data = plydata["face"]["vertex_indices"]
+            # Triangulate: split quads/polygons into triangles
+            tris = []
+            for f in face_data:
+                f = np.array(f, dtype=np.int32)
+                if len(f) == 3:
+                    tris.append(f)
+                else:
+                    # Fan triangulation for polygons
+                    for i in range(1, len(f) - 1):
+                        tris.append(np.array([f[0], f[i], f[i + 1]], dtype=np.int32))
+            faces = np.array(tris, dtype=np.int32)
+        if faces is not None:
+            mesh = trimesh.Trimesh(vertices=vertices, faces=faces, vertex_colors=colors)
+        else:
+            mesh = trimesh.PointCloud(vertices=vertices, colors=colors)
+        return mesh
+
+
 def ply_to_glb(ply_path: Path, max_faces: int = 3_000_000) -> Path:
     glb_path = ply_path.with_suffix(".glb")
     print(f"Loading {ply_path.name} ...")
-    mesh = trimesh.load(ply_path)
+    mesh = load_ply(ply_path)
 
     if isinstance(mesh, trimesh.Scene):
         print(f"  Scene with {len(mesh.geometry)} geometries")

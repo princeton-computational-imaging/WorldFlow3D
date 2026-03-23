@@ -1102,6 +1102,114 @@ pre code {
 /* Mesh Viewer */
 .mesh-viewer {
     background: #cccccc;
+    margin-bottom: 20px;
+}
+
+.mesh-scene-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    margin-bottom: 0;
+}
+
+.mesh-scene-tab {
+    padding: 8px 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    font-family: 'Helvetica', sans-serif;
+    color: #555;
+    background: #e8e8e8;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.mesh-scene-tab:first-child {
+    border-radius: 6px 0 0 0;
+}
+
+.mesh-scene-tab:last-child {
+    border-radius: 0 6px 0 0;
+}
+
+.mesh-scene-tab.active {
+    color: #fff;
+    background: #363636;
+}
+
+.mesh-scene-tab:hover:not(.active) {
+    background: #d0d0d0;
+}
+
+.mesh-compare-toggle {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index: 20;
+    padding: 6px 14px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    font-family: 'Helvetica', sans-serif;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    cursor: pointer;
+    backdrop-filter: blur(6px);
+    transition: background 0.2s;
+}
+
+.mesh-compare-toggle:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.mesh-divider {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 4px;
+    margin-left: -2px;
+    background: #fff;
+    cursor: ew-resize;
+    z-index: 15;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
+}
+
+.mesh-divider::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 24px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.mesh-split-label {
+    position: absolute;
+    bottom: 12px;
+    z-index: 16;
+    padding: 4px 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    font-family: 'Helvetica', sans-serif;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 12px;
+    transform: translateX(-50%);
+    pointer-events: none;
+}
+
+.mesh-split-label-left {
+    left: 25%;
+}
+
+.mesh-split-label-right {
+    left: 75%;
 }
 
 .mesh-loading-overlay {

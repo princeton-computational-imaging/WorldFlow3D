@@ -190,10 +190,21 @@
         <div class="columns is-centered has-text-centered">
             <div class="column is-four-fifths">
                 <h2 class="title is-3" id="viewer">Interactive 3D Viewer</h2>
-                <div class="mesh-viewer" data-src="assets/meshes/segment-102319_0p2_color.glb" style="width: 100%; height: 500px; overflow: hidden; position: relative; box-shadow: 0 4px 20px rgba(0,0,0,0.2);"></div>
                 <div class="content has-text-justified">
-                    <p>Explore a generated 3D scene interactively. Drag to orbit, scroll to zoom.</p>
+                    <p>Explore generated 3D scenes interactively. Drag to orbit, scroll to zoom.</p>
                 </div>
+                <div class="mesh-scene-tabs">
+                    <button class="mesh-scene-tab active" data-scene="0">Outdoor 1</button>
+                    <button class="mesh-scene-tab" data-scene="1">Outdoor 2</button>
+                    <button class="mesh-scene-tab" data-scene="2">Indoor</button>
+                </div>
+                <div class="mesh-viewer"
+                    data-scenes='[
+                        {"src": "assets/meshes/day_s102751.glb", "srcAlt": "assets/meshes/map_s102751.glb", "label": "Day", "labelAlt": "Map"},
+                        {"src": "assets/meshes/dusk_s179934.glb", "srcAlt": "assets/meshes/night_s179934.glb", "label": "Dusk", "labelAlt": "Night"},
+                        {"src": "assets/meshes/front3D_large.glb", "label": "Indoor", "color": "#AFD3E7"}
+                    ]'
+                    style="width: 100%; height: 500px; overflow: hidden; position: relative; box-shadow: 0 4px 20px rgba(0,0,0,0.2);"></div>
             </div>
         </div>
         <!--/ Interactive 3D Mesh Viewer -->
