@@ -1,7 +1,11 @@
-* { 
-    margin: 0; 
-    padding: 0; 
-    box-sizing: border-box; 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-padding-top: 60px;
 }
 
 
@@ -1020,6 +1024,98 @@ pre code {
 @keyframes pulse {
   0%, 100% { opacity: 0.6; }
   50% { opacity: 1; }
+}
+
+/* Sticky Navigation */
+.sticky-nav {
+    position: fixed;
+    top: -60px;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    transition: top 0.3s ease;
+}
+
+.sticky-nav.visible {
+    top: 0;
+}
+
+.sticky-nav-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 10px 20px;
+    flex-wrap: wrap;
+}
+
+.sticky-nav-link {
+    color: #555;
+    font-family: 'Helvetica', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 5px 12px;
+    border-radius: 20px;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.sticky-nav-link:hover {
+    color: #2c3e50;
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.sticky-nav-link.active {
+    color: #2c3e50;
+    background: rgba(44, 62, 80, 0.1);
+    font-weight: 600;
+}
+
+@media screen and (max-width: 768px) {
+    .sticky-nav-inner {
+        gap: 2px;
+        padding: 8px 10px;
+    }
+
+    .sticky-nav-link {
+        font-size: 0.7rem;
+        padding: 4px 8px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .sticky-nav-link {
+        font-size: 0.62rem;
+        padding: 3px 6px;
+    }
+}
+
+/* Mesh Viewer */
+.mesh-viewer {
+    background: #1a1a2e;
+}
+
+.mesh-loading-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(26, 26, 46, 0.95);
+    z-index: 10;
+    color: white;
 }
 
 /* Performance optimizations */
