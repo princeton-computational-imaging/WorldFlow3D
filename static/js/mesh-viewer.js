@@ -69,7 +69,7 @@ function createScene() {
     scene.add(new THREE.AmbientLight(0xffffff, 0.2));
 
     // Main sun: 4644K warm white (#FFD8C1)
-    const sun = new THREE.DirectionalLight(0xffd8c1, 1.5);
+    const sun = new THREE.DirectionalLight(0xffe8d8, 1.5);
     sun.position.set(5, 10, 7);
     scene.add(sun);
 
@@ -198,8 +198,12 @@ function initMeshViewer(container) {
             aLoaded = true;
             checkDone();
         }, (xhr) => {
-            if (xhr.total && activeIndex === idx) {
-                showLoading(`Loading ${config.label || "scene"}... ${Math.round(xhr.loaded / xhr.total * 100)}%`);
+            if (activeIndex === idx) {
+                if (xhr.lengthComputable) {
+                    showLoading(`Loading ${config.label || "scene"}... ${Math.round(xhr.loaded / xhr.total * 100)}%`);
+                } else {
+                    showLoading(`Loading ${config.label || "scene"}... ${(xhr.loaded / 1048576).toFixed(1)} MB`);
+                }
             }
         }, config.color || null);
 
@@ -210,8 +214,12 @@ function initMeshViewer(container) {
                 bLoaded = true;
                 checkDone();
             }, (xhr) => {
-                if (xhr.total && aLoaded && activeIndex === idx) {
-                    showLoading(`Loading ${config.labelAlt || "alt"}... ${Math.round(xhr.loaded / xhr.total * 100)}%`);
+                if (aLoaded && activeIndex === idx) {
+                    if (xhr.lengthComputable) {
+                        showLoading(`Loading ${config.labelAlt || "alt"}... ${Math.round(xhr.loaded / xhr.total * 100)}%`);
+                    } else {
+                        showLoading(`Loading ${config.labelAlt || "alt"}... ${(xhr.loaded / 1048576).toFixed(1)} MB`);
+                    }
                 }
             }, config.colorAlt || config.color || null);
         }
