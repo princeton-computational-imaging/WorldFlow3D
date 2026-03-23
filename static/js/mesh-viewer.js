@@ -9,7 +9,7 @@ function loadMesh(src, callback, onProgress, colorOverride) {
         if (colorOverride) {
             return new THREE.MeshStandardMaterial({
                 color: new THREE.Color(colorOverride),
-                roughness: 1.0, metalness: 0.0, side: THREE.DoubleSide,
+                roughness: 0.75, metalness: 0.0, side: THREE.DoubleSide,
             });
         }
         const colorAttr = geom.hasAttribute("color") ? "color"
@@ -17,11 +17,11 @@ function loadMesh(src, callback, onProgress, colorOverride) {
         if (colorAttr) {
             if (colorAttr === "_color") geom.setAttribute("color", geom.getAttribute("_color"));
             return new THREE.MeshStandardMaterial({
-                vertexColors: true, roughness: 1.0, metalness: 0.0, side: THREE.DoubleSide,
+                vertexColors: true, roughness: 0.75, metalness: 0.0, side: THREE.DoubleSide,
             });
         }
         return new THREE.MeshStandardMaterial({
-            color: 0x8899aa, roughness: 1.0, metalness: 0.0, side: THREE.DoubleSide,
+            color: 0x8899aa, roughness: 0.75, metalness: 0.0, side: THREE.DoubleSide,
         });
     }
     if (ext === "ply") {
@@ -66,15 +66,16 @@ function createScene() {
     const scene = new THREE.Scene();
     scene.background = new THREE.Color(0xcccccc);
 
-    scene.add(new THREE.AmbientLight(0xffffff, 0.2));
+    // Hemisphere light: subtle fill only
+    scene.add(new THREE.HemisphereLight(0xb0d0f0, 0xf0e0d0, 0.3));
 
-    // Main sun: 4644K warm white (#FFD8C1)
-    const sun = new THREE.DirectionalLight(0xffe8d8, 1.5);
+    // Main sun: 4644K warm white
+    const sun = new THREE.DirectionalLight(0xffe8d8, 2.0);
     sun.position.set(5, 10, 7);
     scene.add(sun);
 
-    // Hard shadow sun: cooler, from a different angle
-    const hardSun = new THREE.DirectionalLight(0xffffff, 0.8);
+    // Hard shadow sun: cooler, opposite angle for contrast
+    const hardSun = new THREE.DirectionalLight(0xffffff, 0.4);
     hardSun.position.set(-3, 8, 4);
     scene.add(hardSun);
     return scene;
@@ -101,8 +102,8 @@ function initMeshViewer(container) {
     const renderer = new THREE.WebGLRenderer({ antialias: true });
     renderer.setSize(width, height);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    renderer.toneMappingExposure = 1.2;
+    renderer.toneMapping = THREE.LinearToneMapping;
+    renderer.toneMappingExposure = 1.0;
     container.appendChild(renderer.domElement);
 
     const controls = new OrbitControls(camera, renderer.domElement);
