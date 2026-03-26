@@ -148,22 +148,32 @@
         </div>
     </section>
 
-    <!-- Video -->
+    <!-- Interactive 3D Mesh Viewer -->
     <section class="section" style="padding-top: 1rem; padding-bottom: 1rem;">
         <div class="container is-max-desktop">
-            <div class="columns is-centered">
+            <div class="columns is-centered has-text-centered">
                 <div class="column is-four-fifths">
-                    <div class="single-driving-video">
-                        <video class="driving-video-single" autoplay muted loop playsinline preload="auto">
-                            <source src="assets/video/cond_video_webpage.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
+                    <div class="mesh-scene-tabs">
+                        <button class="mesh-scene-tab active" data-scene="0">Outdoor 1</button>
+                        <button class="mesh-scene-tab" data-scene="1">Outdoor 2</button>
+                        <button class="mesh-scene-tab" data-scene="2">Indoor</button>
+                    </div>
+                    <div class="mesh-viewer"
+                        data-scenes='[
+                            {"src": "assets/meshes/day_s102751.glb", "srcAlt": "assets/meshes/map_s102751.glb", "label": "Day", "labelAlt": "Map"},
+                            {"src": "assets/meshes/dusk_s179934.glb", "srcAlt": "assets/meshes/night_s179934.glb", "label": "Dusk", "labelAlt": "Night"},
+                            {"src": "assets/meshes/front3D_large.glb", "label": "Indoor", "color": "#AFD3E7"}
+                        ]'
+                        style="width: 100%; height: 500px; overflow: hidden; position: relative; box-shadow: 0 4px 20px rgba(0,0,0,0.2);"></div>
+                    <!-- <h2 class="title is-3" id="viewer">Interactive 3D Viewer of Large-Scale 3D Scenes</h2> -->
+                    <div class="content has-text-justified">
+                        <p>Explore generated 3D scenes interactively. Drag to orbit, scroll to zoom.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!--/ Video -->
+    <!--/ Interactive 3D Mesh Viewer -->
 
     <section class="section">
         <div class="container is-max-desktop">
@@ -178,36 +188,26 @@
         </div>
         <!--/ Abstract. -->
 
+        <!-- Video -->
+        <div class="columns is-centered">
+            <div class="column is-four-fifths">
+                <div class="single-driving-video">
+                    <video class="driving-video-single" autoplay muted loop playsinline preload="auto">
+                        <source src="assets/video/cond_video_webpage.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+        </div>
+        <!--/ Video -->
+
         <!-- Teaser Figure -->
-        <div class="columns is-centered has-text-centered">
+        <!-- <div class="columns is-centered has-text-centered">
             <div class="column is-four-fifths">
                 <img src="assets/images/teaser_figure_one_street-1.webp" alt="WorldFlow3D Teaser" class="results-image" style="width: 100%; display: block; margin: 0 auto;">
             </div>
-        </div>
+        </div> -->
         <!--/ Teaser Figure -->
-
-        <!-- Interactive 3D Mesh Viewer -->
-        <div class="columns is-centered has-text-centered">
-            <div class="column is-four-fifths">
-                <h2 class="title is-3" id="viewer">Interactive 3D Viewer of Large-Scale 3D Scenes</h2>
-                <div class="content has-text-justified">
-                    <p>Explore generated 3D scenes interactively. Drag to orbit, scroll to zoom.</p>
-                </div>
-                <div class="mesh-scene-tabs">
-                    <button class="mesh-scene-tab active" data-scene="0">Outdoor 1</button>
-                    <button class="mesh-scene-tab" data-scene="1">Outdoor 2</button>
-                    <button class="mesh-scene-tab" data-scene="2">Indoor</button>
-                </div>
-                <div class="mesh-viewer"
-                    data-scenes='[
-                        {"src": "assets/meshes/day_s102751.glb", "srcAlt": "assets/meshes/map_s102751.glb", "label": "Day", "labelAlt": "Map"},
-                        {"src": "assets/meshes/dusk_s179934.glb", "srcAlt": "assets/meshes/night_s179934.glb", "label": "Dusk", "labelAlt": "Night"},
-                        {"src": "assets/meshes/front3D_large.glb", "label": "Indoor", "color": "#AFD3E7"}
-                    ]'
-                    style="width: 100%; height: 500px; overflow: hidden; position: relative; box-shadow: 0 4px 20px rgba(0,0,0,0.2);"></div>
-            </div>
-        </div>
-        <!--/ Interactive 3D Mesh Viewer -->
 
         <!-- Method Overview -->
         <div class="columns is-centered has-text-centered">
@@ -244,6 +244,12 @@
                 <div class="results-figure">
                     <img src="assets/images/controllability_final-1.webp" alt="Controllability Results" class="results-image">
                 </div>
+                <div class="content has-text-justified" style="margin-top: 1.5rem;">
+                    <p>We further demonstrate the diversity of conditional generations below. Given the same geometric layout, WorldFlow3D produces varied scene realizations with distinct textures and environmental conditions, highlighting the expressiveness of our flow-based generation approach.</p>
+                </div>
+                <div class="results-figure">
+                    <img src="assets/images/supp_conditional_large_website.webp" alt="Conditional Generation Results" class="results-image">
+                </div>
             </div>
         </div>
         <!--/ Controllable Scene Generation -->
@@ -276,6 +282,20 @@
             </div>
         </div>
         <!--/ Baseline Comparisons -->
+
+        <!-- 3D City Comparison -->
+        <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths">
+                <h2 class="title is-3">Synthetic 3D City Evaluation</h2>
+                <div class="content has-text-justified">
+                    <p>We evaluate WorldFlow3D on large-scale scene generation using the synthetic 3D-City dataset. Compared to LT3SD, a recent baseline retrained on this dataset, our method produces higher-quality 3D geometric structure and more coherent overall scene layouts. WorldFlow3D faithfully respects road topology and captures finer details such as the placement of streetlights and building facades.</p>
+                </div>
+                <div class="results-figure">
+                    <img src="assets/images/supp_city_comparison_website.webp" alt="3D City Comparison" class="results-image">
+                </div>
+            </div>
+        </div>
+        <!--/ 3D City Comparison -->
 
         <!-- Composability with Dynamic Actors -->
         <!-- <div class="columns is-centered has-text-centered">
