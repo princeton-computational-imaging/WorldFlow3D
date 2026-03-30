@@ -166,11 +166,6 @@ body {
     margin: 20px 0;
 }
 
-.baseline-videos-full {
-    width: 80vw;
-    margin: 20px auto;
-    margin-left: calc(-40vw + 50%);
-}
 
 .baseline-video {
     width: 100%;
@@ -681,16 +676,13 @@ pre code {
 .scene-carousel-wrapper {
     margin: 20px 0;
     overflow: hidden;
-    width: 80vw;
-    margin-left: calc(-40vw + 50%);
 }
 
-/* Large screens: 3x2 grid, no scrolling */
+/* Large screens: 2x3 grid, no scrolling */
 .scene-carousel {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 12px;
-    padding: 0 20px;
 }
 
 .scene-carousel-item {
