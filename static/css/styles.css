@@ -677,36 +677,23 @@ pre code {
   display: block;
 }
 
-/* Scene Video Carousel */
+/* Scene Video Grid / Carousel */
 .scene-carousel-wrapper {
     margin: 20px 0;
     overflow: hidden;
-    width: 100vw;
-    margin-left: calc(-50vw + 50%);
+    width: 80vw;
+    margin-left: calc(-40vw + 50%);
 }
 
+/* Large screens: 3x2 grid, no scrolling */
 .scene-carousel {
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 12px;
-    cursor: grab;
-}
-
-.scene-carousel::-webkit-scrollbar {
-    display: none;
-}
-
-.scene-carousel.grabbing {
-    cursor: grabbing;
-    scroll-snap-type: none;
+    padding: 0 20px;
 }
 
 .scene-carousel-item {
-    flex: 0 0 calc((100% - 24px) / 3);
-    scroll-snap-align: center;
     border-radius: 0;
     overflow: hidden;
     position: relative;
@@ -732,9 +719,9 @@ pre code {
     backdrop-filter: blur(4px);
 }
 
-/* Scene Carousel Dots */
+/* Scene Carousel Dots - hidden on large screens */
 .scene-carousel-dots {
-    display: flex;
+    display: none;
     justify-content: center;
     gap: 8px;
     margin-bottom: 12px;
@@ -758,10 +745,30 @@ pre code {
     background: #aaa;
 }
 
-/* Tablet: ~1.5 videos visible, sides peek in */
+/* Switch to carousel mode on smaller screens */
 @media screen and (max-width: 1024px) {
+    .scene-carousel-dots {
+        display: flex;
+    }
+    .scene-carousel {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        cursor: grab;
+        padding: 0;
+    }
+    .scene-carousel::-webkit-scrollbar {
+        display: none;
+    }
+    .scene-carousel.grabbing {
+        cursor: grabbing;
+        scroll-snap-type: none;
+    }
     .scene-carousel-item {
         flex: 0 0 60%;
+        scroll-snap-align: center;
     }
     .scene-carousel {
         scroll-padding: 0 20%;
