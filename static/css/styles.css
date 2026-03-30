@@ -23,7 +23,6 @@ body {
 
 .method-image {
     width: 100%;
-    max-width: 800px;
     height: auto;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
@@ -44,7 +43,6 @@ body {
 
 .results-image {
     width: 100%;
-    max-width: 800px;
     height: auto;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
@@ -166,6 +164,12 @@ body {
 /* Baseline Videos Styling */
 .baseline-videos {
     margin: 20px 0;
+}
+
+.baseline-videos-full {
+    width: 80vw;
+    margin: 20px auto;
+    margin-left: calc(-40vw + 50%);
 }
 
 .baseline-video {
@@ -671,6 +675,107 @@ pre code {
   text-align: left;
   white-space: pre;
   display: block;
+}
+
+/* Scene Video Carousel */
+.scene-carousel-wrapper {
+    margin: 20px 0;
+    overflow: hidden;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+}
+
+.scene-carousel {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 12px;
+    cursor: grab;
+}
+
+.scene-carousel::-webkit-scrollbar {
+    display: none;
+}
+
+.scene-carousel.grabbing {
+    cursor: grabbing;
+    scroll-snap-type: none;
+}
+
+.scene-carousel-item {
+    flex: 0 0 calc((100% - 24px) / 3);
+    scroll-snap-align: center;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.scene-carousel-item video {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.scene-carousel-label {
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 3px 10px;
+    border-radius: 12px;
+    backdrop-filter: blur(4px);
+}
+
+/* Scene Carousel Dots */
+.scene-carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.scene-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #dbdbdb;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.scene-dot.active {
+    background: #363636;
+    transform: scale(1.2);
+}
+
+.scene-dot:hover:not(.active) {
+    background: #aaa;
+}
+
+/* Tablet: ~1.5 videos visible, sides peek in */
+@media screen and (max-width: 1024px) {
+    .scene-carousel-item {
+        flex: 0 0 60%;
+    }
+    .scene-carousel {
+        scroll-padding: 0 20%;
+    }
+}
+
+/* Mobile: 1 video + 10% peek on each side */
+@media screen and (max-width: 768px) {
+    .scene-carousel-item {
+        flex: 0 0 80%;
+    }
+    .scene-carousel {
+        scroll-padding: 0 10%;
+    }
 }
 
 /* Responsive font sizes */
