@@ -24,7 +24,7 @@ body {
 .method-image {
     width: 100%;
     height: auto;
-    border-radius: 8px;
+    border-radius: 0;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
@@ -44,7 +44,7 @@ body {
 .results-image {
     width: 100%;
     height: auto;
-    border-radius: 8px;
+    border-radius: 0;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
@@ -134,7 +134,7 @@ body {
 .composability-image {
     width: 100%;
     height: auto;
-    border-radius: 8px;
+    border-radius: 0;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     margin-bottom: 10px;
 }
@@ -175,7 +175,7 @@ body {
 .baseline-video {
     width: 100%;
     height: auto;
-    border-radius: 8px;
+    border-radius: 0;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     margin-bottom: 15px;
 }
@@ -256,7 +256,7 @@ h1 {
 .carousel-slide {
     flex-shrink: 0;
     position: relative;
-    border-radius: 6px;
+    border-radius: 0;
     overflow: hidden;
     box-shadow: 0 10px 25px rgba(0,0,0,0.15), 0 5px 15px rgba(0,0,0,0.1);
     transition: all 0.5s ease-in-out;
@@ -592,7 +592,7 @@ h1 {
     padding-bottom: 56.25%;
 
     overflow: hidden;
-    border-radius: 10px !important;
+    border-radius: 0 !important;
 }
 
 .publication-video iframe {
@@ -614,7 +614,7 @@ h1 {
   margin: 5px;
   overflow: hidden;
   border: 1px solid #bbb;
-  border-radius: 10px;
+  border-radius: 0;
   padding: 0;
   font-size: 0;
 }
@@ -626,12 +626,12 @@ h1 {
 
 .interpolation-panel {
   background: #f5f5f5;
-  border-radius: 10px;
+  border-radius: 0;
 }
 
 .interpolation-panel .interpolation-image {
   width: 100%;
-  border-radius: 5px;
+  border-radius: 0;
 }
 
 .interpolation-video-column {
@@ -649,7 +649,7 @@ h1 {
   width: 100%;
 }
 #interpolation-image-wrapper img {
-  border-radius: 5px;
+  border-radius: 0;
 }
 
 /* BibTeX styling */
@@ -707,7 +707,7 @@ pre code {
 .scene-carousel-item {
     flex: 0 0 calc((100% - 24px) / 3);
     scroll-snap-align: center;
-    border-radius: 8px;
+    border-radius: 0;
     overflow: hidden;
     position: relative;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
