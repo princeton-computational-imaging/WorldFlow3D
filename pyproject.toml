@@ -1,0 +1,47 @@
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "worldflow3d"
+version = "0.1.0"
+description = "WorldFlow3D — hierarchical 3D scene generation (diffusers-native inference)."
+# The package README is the PyPI long-description AND (copied to repo root by
+# tools/sync_from_upstream.sh) the public-repo landing page.
+readme = "worldflow3d/README.md"
+requires-python = ">=3.10"
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+authors = [{ name = "The WorldFlow3D Authors" }]
+keywords = ["3d-generation", "diffusion", "flow-matching", "diffusers", "voxel"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "torch>=2.2",
+    "numpy>=1.24",                 # 1.x and 2.x both tested
+    "diffusers>=0.29",             # tested on 0.29.2 (torch 2.2) and 0.38.0 (torch 2.5)
+    "huggingface_hub>=0.20",
+    "safetensors>=0.4",
+    "trimesh>=4.0",
+    "scikit-image>=0.22",
+    "scipy>=1.10",
+    "einops>=0.7",
+]
+
+[project.optional-dependencies]
+layout = ["h5py>=3.0"]      # Front3D / ScanNet++ .h5 layout loading
+examples = ["tyro>=0.7"]    # CLI example scripts
+
+[project.scripts]
+worldflow3d-generate-streets = "worldflow3d.scripts.generate_streets:main"
+worldflow3d-generate-indoor = "worldflow3d.scripts.generate_indoor:main"
+
+[project.urls]
+Homepage = "https://github.com/princeton-computational-imaging/WorldFlow3D"
+Repository = "https://github.com/princeton-computational-imaging/WorldFlow3D"
+
+# Only the standalone `worldflow3d/` package is distributed (NOT the research src/).
+[tool.setuptools.packages.find]
+include = ["worldflow3d*"]
