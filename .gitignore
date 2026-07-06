@@ -1,0 +1,70 @@
+testing.py
+.claude
+.claude_docs/
+**/__pycache__/
+__pycache__/
+.vscode/
+job_submissions
+ext/
+flash-attention
+.tmp/
+tmp/
+/data/
+*.egg-info
+dist/
+# Ignore local .github experiments, but keep the release CI workflows tracked.
+.github/*
+!.github/workflows/
+!.github/workflows/*
+
+# Experiments
+logs/
+slurm_logs
+*outputs*
+testing_scripts/
+
+slurm_scripts
+*.slurm
+
+# Waymo convert front -> frontLR
+scripts/submit_regen_cameras.sh
+scripts/test_regen_cameras.py
+scripts/regen_waymo_cameras.py
+waymo_tfrecords.txt
+
+# analysis
+scripts/debug
+debug_visualizations
+
+# Core data locations
+configs/archive/
+archive/
+baselines/
+.paper/
+results/
+
+# Various other data locations
+**/*waymo_scenes*
+waymo_maps
+vae_verification_output
+generated_scenes*
+3dfront_data
+*.ply
+*.npy
+*.png
+*.jpg
+scripts/tools/*.out
+3dfront/
+
+# old transfer scripts for waymo_preprocessed data
+scripts/tools/check_errored.sh
+scripts/tools/run_all.sh
+scripts/tools/run_cleanup.sh
+scripts/tools/run_rsync.exp
+scripts/tools/training_logs/
+# scripts/visualization/ is tracked
+
+*ckpts/
+configs/experiments
+scripts/experiments
+scripts/visualization

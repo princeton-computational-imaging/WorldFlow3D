@@ -1,0 +1,33 @@
+WorldFlow3D
+Copyright 2026 The WorldFlow3D Authors
+
+This product includes software developed by the WorldFlow3D Authors.
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not
+use the files in this repository except in compliance with the License. You
+may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+------------------------------------------------------------------------------
+Third-party components
+------------------------------------------------------------------------------
+
+This software incorporates or depends on third-party components that are
+licensed separately. Their licenses and attributions are recorded in
+THIRD_PARTY_LICENSES.md. Notable items:
+
+  * third_party/sdf-gen  (MIT)  - data-preprocessing only (UDF generation)
+  * third_party/concerto (MIT)  - optional feature supervision / FD-Concerto
+  * third_party/utonia          - optional feature visualization
+
+Pretrained foundation models (e.g. DINOv3 via `timm`) and datasets used to
+train released checkpoints (Waymo Open Dataset, 3D-FRONT, ScanNet++) are
+governed by their own licenses and terms of use, which are NOT granted by this
+Apache-2.0 license. See THIRD_PARTY_LICENSES.md and the dataset providers.
+
+The Waymo models (`waymo-coarse`, `waymo-refine`) and the sample maps under
+`examples/sample_maps/` are derived from the Waymo Open Dataset and are released
+for NON-COMMERCIAL use only, under the Waymo Dataset License Agreement. This
+Apache-2.0 license does NOT cover them. See WAYMO_NOTICE.md and
+https://waymo.com/open/terms for the required notice, attribution, and terms.
