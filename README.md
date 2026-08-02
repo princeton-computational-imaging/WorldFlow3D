@@ -189,13 +189,7 @@ trained model (different weights and configs), not a copy.
 | **Local dirs** | `WorldFlow3DPipeline.from_converted(coarse_dir, [refine_dir, ...])` | converted dirs on disk |
 | **Bare diffusers** | `DiffusionPipeline.from_pretrained(repo, trust_remote_code=True)` | a model at the **repo root** only |
 
-> **Why no `subfolder=` one-liner?** `diffusers.DiffusionPipeline.from_pretrained`
-> does not apply `subfolder` at the *pipeline* level — it reads `model_index.json`
-> only from the repo root (true even on the latest diffusers). So the
-> subfolder/cascade layout is loaded via `from_hub` (this package). The bare-diffusers
-> `trust_remote_code` one-liner works only for a model published at a repo root.
-
-## Design (diffusers-native)
+## Design
 
 | Component | Class | Notes |
 |---|---|---|
